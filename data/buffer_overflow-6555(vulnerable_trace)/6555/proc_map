@@ -1,0 +1,116 @@
+7f7f7913d000-7f7f7917d000 rw-p 00000000 00:00 0 
+7f7f7917d000-7f7f7917e000 ---p 00000000 00:00 0 
+7f7f7917e000-7f7f79184000 rw-p 00000000 00:00 0 
+7f7f79184000-7f7f79186000 ---p 00000000 00:00 0 
+7f7f79186000-7f7f79187000 rw-p 00000000 00:00 0 
+7f7f79187000-7f7f7918e000 ---p 00000000 00:00 0 
+7f7f7918e000-7f7f79194000 rw-p 00000000 00:00 0 
+7f7f79194000-7f7f79196000 ---p 00000000 00:00 0 
+7f7f79196000-7f7f791ae000 rw-p 00000000 00:00 0 
+7f7f791ae000-7f7f791b0000 ---p 00000000 00:00 0 
+7f7f791b0000-7f7f791be000 rw-p 00000000 00:00 0 
+7f7f791be000-7f7f791c0000 ---p 00000000 00:00 0 
+7f7f791c0000-7f7f791c3000 rw-p 00000000 00:00 0 
+7f7f791c3000-7f7f791ce000 ---p 00000000 00:00 0 
+7f7f791ce000-7f7f791da000 rw-p 00000000 00:00 0 
+7f7f791da000-7f7f791dc000 ---p 00000000 00:00 0 
+7f7f791dc000-7f7f791dd000 rw-p 00000000 00:00 0 
+7f7f791dd000-7f7f791df000 ---p 00000000 00:00 0 
+7f7f791df000-7f7f791e1000 rw-p 00000000 00:00 0 
+7f7f791e1000-7f7f791e3000 ---p 00000000 00:00 0 
+7f7f791e3000-7f7f791f1000 rw-p 00000000 00:00 0 
+7f7f791f1000-7f7f791f3000 ---p 00000000 00:00 0 
+7f7f791f3000-7f7f791f6000 rw-p 00000000 00:00 0 
+7f7f791f6000-7f7f791fb000 ---p 00000000 00:00 0 
+7f7f791fb000-7f7f791fd000 rw-p 00000000 00:00 0 
+7f7f791fd000-7f7f79200000 ---p 00000000 00:00 0 
+7f7f79200000-7f7f79201000 rw-p 00000000 00:00 0 
+7f7f79201000-7f7f79205000 ---p 00000000 00:00 0 
+7f7f79205000-7f7f7920d000 rw-p 00000000 00:00 0 
+7f7f7920d000-7f7f7920f000 ---p 00000000 00:00 0 
+7f7f7920f000-7f7f79227000 rw-p 00000000 00:00 0 
+7f7f79227000-7f817913e000 ---p 00000000 00:00 0 
+7f817913e000-7f8179146000 rw-p 00000000 00:00 0 
+7f8179146000-7f8179149000 r--p 00000000 08:01 283680                     /home/student/project/CS5231_project/libpeekaboo_dr.so
+7f8179149000-7f817914e000 r-xp 00003000 08:01 283680                     /home/student/project/CS5231_project/libpeekaboo_dr.so
+7f817914e000-7f817914f000 r--p 00008000 08:01 283680                     /home/student/project/CS5231_project/libpeekaboo_dr.so
+7f817914f000-7f8179150000 ---p 00000000 00:00 0 
+7f8179150000-7f8179152000 rw-p 00009000 08:01 283680                     /home/student/project/CS5231_project/libpeekaboo_dr.so
+7f8179152000-7f8179154000 ---p 00000000 00:00 0 
+7f8179154000-7f8179159000 rw-p 00000000 00:00 0 
+7f8179159000-7f817915c000 ---p 00000000 00:00 0 
+7f817915c000-7f817915d000 rwxp 00000000 00:00 0 
+7f817915d000-7f817915e000 r-xp 00000000 00:00 0 
+7f817915e000-7f817915f000 rwxp 00000000 00:00 0 
+7f817915f000-7f8179163000 ---p 00000000 00:00 0 
+7f8179163000-7f8179164000 rwxp 00000000 00:00 0 
+7f8179164000-7f8179173000 ---p 00000000 00:00 0 
+7f8179173000-7f8179174000 rwxp 00000000 00:00 0 
+7f8179174000-7f8179183000 ---p 00000000 00:00 0 
+7f8179183000-7f8179184000 rwxp 00000000 00:00 0 
+7f8179184000-7f8179186000 ---p 00000000 00:00 0 
+7f8179186000-7f8179187000 rwxp 00000000 00:00 0 
+7f8179187000-7f8179189000 ---p 00000000 00:00 0 
+7f8179189000-7f817918a000 rw-p 00000000 00:00 0 
+7f817918a000-7f8179190000 ---p 00000000 00:00 0 
+7f8179190000-7f8179192000 r--p 00000000 08:01 12026                      /home/student/dynamorio/build/ext/lib64/release/libdrutil.so
+7f8179192000-7f8179194000 r-xp 00002000 08:01 12026                      /home/student/dynamorio/build/ext/lib64/release/libdrutil.so
+7f8179194000-7f8179195000 r--p 00004000 08:01 12026                      /home/student/dynamorio/build/ext/lib64/release/libdrutil.so
+7f8179195000-7f8179197000 rw-p 00004000 08:01 12026                      /home/student/dynamorio/build/ext/lib64/release/libdrutil.so
+7f8179197000-7f8179198000 ---p 00000000 00:00 0 
+7f8179198000-7f817919c000 r--p 00000000 08:01 11967                      /home/student/dynamorio/build/ext/lib64/release/libdrmgr.so
+7f817919c000-7f81791a5000 r-xp 00004000 08:01 11967                      /home/student/dynamorio/build/ext/lib64/release/libdrmgr.so
+7f81791a5000-7f81791a8000 r--p 0000d000 08:01 11967                      /home/student/dynamorio/build/ext/lib64/release/libdrmgr.so
+7f81791a8000-7f81791aa000 rw-p 0000f000 08:01 11967                      /home/student/dynamorio/build/ext/lib64/release/libdrmgr.so
+7f81791aa000-7f81791ab000 ---p 00000000 00:00 0 
+7f81791ab000-7f81791af000 r--p 00000000 08:01 12117                      /home/student/dynamorio/build/ext/lib64/release/libdrx.so
+7f81791af000-7f81791b7000 r-xp 00004000 08:01 12117                      /home/student/dynamorio/build/ext/lib64/release/libdrx.so
+7f81791b7000-7f81791b9000 r--p 0000c000 08:01 12117                      /home/student/dynamorio/build/ext/lib64/release/libdrx.so
+7f81791b9000-7f81791bb000 rw-p 0000d000 08:01 12117                      /home/student/dynamorio/build/ext/lib64/release/libdrx.so
+7f81791bb000-7f81791bc000 ---p 00000000 00:00 0 
+7f81791bc000-7f81791bf000 r--p 00000000 08:01 12059                      /home/student/dynamorio/build/ext/lib64/release/libdrreg.so
+7f81791bf000-7f81791c6000 r-xp 00003000 08:01 12059                      /home/student/dynamorio/build/ext/lib64/release/libdrreg.so
+7f81791c6000-7f81791c8000 r--p 0000a000 08:01 12059                      /home/student/dynamorio/build/ext/lib64/release/libdrreg.so
+7f81791c8000-7f81791ca000 rw-p 0000b000 08:01 12059                      /home/student/dynamorio/build/ext/lib64/release/libdrreg.so
+7f81791ca000-7f81b913e000 ---p 00000000 00:00 0 
+7f81b913e000-7f81b913f000 r--p 00000000 08:01 283679                     /home/student/project/CS5231_project/buffer_overflow
+7f81b913f000-7f81b9140000 r-xp 00001000 08:01 283679                     /home/student/project/CS5231_project/buffer_overflow
+7f81b9140000-7f81b9141000 r--p 00002000 08:01 283679                     /home/student/project/CS5231_project/buffer_overflow
+7f81b9141000-7f81b9143000 rw-p 00002000 08:01 283679                     /home/student/project/CS5231_project/buffer_overflow
+7f81b9143000-7f81b9144000 ---p 00000000 00:00 0 
+7f81b9144000-7f81b9544000 rw-p 00000000 00:00 0 
+7f81bc478000-7f81bcd98000 rw-p 00000000 00:00 0 
+7f81bcd98000-7f81bcd99000 r--p 00000000 00:00 0 
+7f81bcd99000-7f81bcdbb000 r--p 00000000 08:01 130505                     /usr/lib/x86_64-linux-gnu/libc-2.28.so
+7f81bcdbb000-7f81bcf03000 r-xp 00022000 08:01 130505                     /usr/lib/x86_64-linux-gnu/libc-2.28.so
+7f81bcf03000-7f81bcf4f000 r--p 0016a000 08:01 130505                     /usr/lib/x86_64-linux-gnu/libc-2.28.so
+7f81bcf4f000-7f81bcf50000 ---p 00000000 00:00 0 
+7f81bcf50000-7f81bcf56000 rw-p 001b6000 08:01 130505                     /usr/lib/x86_64-linux-gnu/libc-2.28.so
+7f81bcf56000-7f81bcf5a000 rw-p 00000000 00:00 0 
+7f81bcf5a000-7f81bcf5b000 ---p 00000000 00:00 0 
+7f81bd093000-7f81bd09b000 rw-p 00000000 00:00 0 
+7f81bd09b000-7f81bd09c000 r--p 00000000 00:00 0 
+7f81bd09c000-7f81bd0dc000 rw-p 00000000 00:00 0 
+7f81bd0dc000-7f81bd0dd000 r--p 00000000 00:00 0 
+7f81bd0dd000-7f81bd0ed000 rw-p 00000000 00:00 0 
+7f81bd0ed000-7f81bd0ee000 r--p 00000000 00:00 0 
+7f81bd0ee000-7f81bd0ef000 r--p 00000000 08:01 129825                     /usr/lib/x86_64-linux-gnu/ld-2.28.so
+7f81bd0ef000-7f81bd10d000 r-xp 00001000 08:01 129825                     /usr/lib/x86_64-linux-gnu/ld-2.28.so
+7f81bd10d000-7f81bd115000 r--p 0001f000 08:01 129825                     /usr/lib/x86_64-linux-gnu/ld-2.28.so
+7f81bd115000-7f81bd117000 rw-p 00026000 08:01 129825                     /usr/lib/x86_64-linux-gnu/ld-2.28.so
+7f81bd117000-7f81bd118000 rw-p 00000000 00:00 0 
+7f81bd118000-7f81bd119000 ---p 00000000 00:00 0 
+7f81bd119000-7f81bd11a000 r--p 00000000 08:01 129825                     /usr/lib/x86_64-linux-gnu/ld-2.28.so
+7f81bd11a000-7f81bd138000 r-xp 00001000 08:01 129825                     /usr/lib/x86_64-linux-gnu/ld-2.28.so
+7f81bd138000-7f81bd140000 r--p 0001f000 08:01 129825                     /usr/lib/x86_64-linux-gnu/ld-2.28.so
+7f81bd140000-7f81bd142000 rw-p 00026000 08:01 129825                     /usr/lib/x86_64-linux-gnu/ld-2.28.so
+7f81bd142000-7f81bd143000 rw-p 00000000 00:00 0 
+7f81bd143000-7f81bd144000 ---p 00000000 00:00 0 
+7f81bd149000-7f81bd194000 r--p 00000000 08:01 11870                      /home/student/dynamorio/build/lib64/release/libdynamorio.so
+7f81bd194000-7f81bd286000 r-xp 0004b000 08:01 11870                      /home/student/dynamorio/build/lib64/release/libdynamorio.so
+7f81bd286000-7f81bd2cd000 r--p 0013d000 08:01 11870                      /home/student/dynamorio/build/lib64/release/libdynamorio.so
+7f81bd2cd000-7f81bd330000 rw-p 00183000 08:01 11870                      /home/student/dynamorio/build/lib64/release/libdynamorio.so
+7f81bd330000-7f81bd366000 rw-p 00000000 00:00 0 
+7fffa75ab000-7fffa75cc000 rw-p 00000000 00:00 0                          [stack]
+7fffa75f1000-7fffa75f4000 r--p 00000000 00:00 0                          [vvar]
+7fffa75f4000-7fffa75f6000 r-xp 00000000 00:00 0                          [vdso]

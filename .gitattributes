@@ -1,2 +1,4 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+data/buffer_overflow-4756(normal_trace)/4756/regfile filter=lfs diff=lfs merge=lfs -text
+data/buffer_overflow-6555(vulnerable_trace)/6555/regfile filter=lfs diff=lfs merge=lfs -text
