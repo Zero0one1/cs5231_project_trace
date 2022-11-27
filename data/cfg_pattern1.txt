@@ -1,0 +1,4 @@
+# Search for function prologue
+55               # push  rbp
+48 89 e5         # mov   rbp,rsp
+48 83 ec ??      # sub   rsp, #any-value
