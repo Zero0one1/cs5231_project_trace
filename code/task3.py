@@ -13,6 +13,17 @@ VULN_ADDR_RANGE = (0, 0)
 NORMAL_TRACE_FILE = "../data/4756.all"
 VULN_TRACE_FILE = "../data/6555.all"
 
+CHECK_CANARY_BYTECODE_PATTERN = [
+    "48 8b 45 f8",  # mov  rax, qword ptr [rbp - 8]
+    "64 48 33 04 25",  # xor  rax, qword ptr fs:[?]
+    "74 05"  # je &addr of normal next step (fixed offset 0x05)
+]
+INIT_CANARY_BYTECODE_PATTERN = [
+    "64 48 8b 04 25",  # mov  rax, qword ptr fs:[?]
+    "48 89 45 f8",  # mov  qword ptr [rbp - 8], rax
+    "31 c0"  # xor  eax, eax
+]
+
 
 def get_proc_mem_range(filename):
     '''
@@ -74,14 +85,15 @@ class ExecTrace:
     def __add_trace_line(self, line):
         # can test with https://regex101.com/r/2paWA6/1
         res = re.search(
-            "^\[(?P<line_num>\d+)\]\s*(?P<addr>0x[0-9a-f]+):\s*(?P<bytecode>([0-9a-f]{2}\s)+)\s*(?P<inst>.*)$",
+            "^\[(?P<line_num>\d+)\]\s*(?P<addr>0x[0-9a-f]+):\s*(?P<bytecode>([0-9a-f]{2}\s)+)\s*(?P<op>[a-z]*)\s*(?P<args>.*)$",
             line
         )
         if res is not None:
             self.data[int(res.group('line_num'))] = {
                 "address": res.group('addr'),
                 "bytecode": res.group('bytecode'),
-                "instruction": res.group('inst')
+                "operation": res.group('op'),
+                "arguments": res.group('args'),
             }
 
     def get(self, line_num):
@@ -92,6 +104,34 @@ class ExecTrace:
         ''' return the total number of lines contained in the trace'''
         return len(self.data)
 
+def find_canary_check_inst(trace):
+    '''return the line number of the instruction that crashes the canary'''
+    for i in range(trace.size()-5, 0, -1):
+        cur = trace.get(i)
+        step_after = trace.get(i+1)
+        two_step_after = trace.get(i+2)
+        four_step_after = trace.get(i+4)
+
+        if cur["bytecode"].startswith(CHECK_CANARY_BYTECODE_PATTERN[0]) and \
+           step_after["bytecode"].startswith(CHECK_CANARY_BYTECODE_PATTERN[1]) and \
+           two_step_after["bytecode"].startswith(CHECK_CANARY_BYTECODE_PATTERN[2]) and \
+           four_step_after["arguments"].startswith("Capstone Error"):
+            return i
+
+def find_canary_init_inst(trace, canary_check_ln):
+    '''
+    given the respective line number of canary check
+    return the line number of the nearest canary init instruction
+    '''
+    for i in range(canary_check_ln, 0, -1):
+        cur = trace.get(i)
+        step_after = trace.get(i+1)
+        two_step_after = trace.get(i+2)
+
+        if cur["bytecode"].startswith(INIT_CANARY_BYTECODE_PATTERN[0]) and \
+           step_after["bytecode"].startswith(INIT_CANARY_BYTECODE_PATTERN[1]) and \
+           two_step_after["bytecode"].startswith(INIT_CANARY_BYTECODE_PATTERN[2]):
+            return i
 #
 # ==== Script Start =====
 #
@@ -104,13 +144,14 @@ VULN_ADDR_RANGE = get_proc_mem_range(VULN_DIR + "/proc_map")
 # Task 3.1: get the diff from two traces
 normal_trace = ExecTrace(NORMAL_TRACE_FILE)
 vuln_trace = ExecTrace(VULN_TRACE_FILE)
-diff_trace = []
 
-for i in range(1, min(normal_trace.size(), vuln_trace.size())):
-    n = normal_trace.get(i)
-    v = vuln_trace.get(i)
-    if n["bytecode"] != v["bytecode"]:
-        diff_trace.append({"line": i, "normal": n, "vuln": v})
+# Task 3.2: find line number for instruction that checks the canary
+canary_check_ln = find_canary_check_inst(vuln_trace)
+print("Canary check at Line " + str(canary_check_ln) + ":")
+print("  " + str(vuln_trace.get(canary_check_ln)))
 
-print(diff_trace[0:3])
+# Task 3.3: find line number for instruction that initializes the canary
+canary_init_ln = find_canary_init_inst(vuln_trace, canary_check_ln)
+print("Canary init at Line " + str(canary_init_ln) + ":")
+print("  " + str(vuln_trace.get(canary_init_ln)))
 # ==== Script End =====
