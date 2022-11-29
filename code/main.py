@@ -46,6 +46,6 @@ if __name__ == "__main__":
 
     args = parse_arguments(sys.argv[1:])
 
-    preprocess(args.trace_path)
+    #preprocess(args.trace_path)
 
     main(args)
