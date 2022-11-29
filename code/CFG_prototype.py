@@ -2,8 +2,8 @@ import pandas as pd
 import os, re
 
 READ_TRACE = "/home/cs5231project/Desktop/Peekaboo/read_trace"
-#TRACE_PATH = "/home/cs5231project/Desktop/Project/buffer_overflow_normal/2710"
-TRACE_PATH = "/home/cs5231project/Desktop/Project/buffer_overflow_stacksmash/2866"
+TRACE_PATH = "/home/cs5231project/Desktop/cs5231_project_trace-main/data/buffer_overflow-4756\(normal_trace\)/4756"
+#TRACE_PATH = "/home/cs5231project/Desktop/cs5231_project_trace-main/data/buffer_overflow-6555\(vulnerable_trace\)/6555"
 
 PPROLOGUE_FILTER = "./cfg_pattern1.txt"
 EPILOGUE_FILTER = "./cfg_pattern2.txt"
