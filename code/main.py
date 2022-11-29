@@ -34,7 +34,7 @@ def main(args):
     if args.cfg:
         MainGenCFG(READ_TRACE, args.trace_path)
     if args.ana:
-        canary_instr_r, canary_instr_w = MainGetInstrCanary(trace_s_file)
+        canary_instr_r, canary_instr_w = MainGetInstrCanary(trace_s_file, args.trace_path)
         buf_size = MainGetBufSize(trace_s_file, trace_rm_file, canary_instr_r["address"], canary_instr_w["address"])
 
 if __name__ == "__main__":

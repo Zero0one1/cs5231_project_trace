@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import sys
+import os
 import getopt
 import re
 from collections import defaultdict
@@ -136,7 +136,11 @@ def find_canary_init_inst(trace, canary_check_ln):
 # ==== Script Start =====
 #
 
-def MainGetInstrCanary(trace_s_file):
+def MainGetInstrCanary(trace_s_file, trace_path):
+
+    addr_range = get_proc_mem_range(os.path.join(trace_path, "proc_map"))
+    print(f"The address range of the binary from proc_mem: {addr_range[0]} - {addr_range[1]}")
+
     vuln_trace = ExecTrace(trace_s_file)
 
     # Task 3.2: find line number for instruction that checks the canary
