@@ -23,11 +23,12 @@ cfg_DF = pd.DataFrame(columns=myColumns)
 #We wantform CFG, ENDBR64 (Intel CET), Prologue, Epilogue, various jumps [72 to 77 ??], call [e8 ??]
 opCodeList = ["\[f3 0f 1e fa\]", "\[55\]","\[48 89 e5\]", "\[48 83 ec", "\[c9\]", "\[c3\]","\[72","\[73","\[74","\[75","\[76","\[77", "\[e8"] 
 
-def GenerateIntermediateFiles():
-    output_prologueTrace = READ_TRACE + " -p " + PPROLOGUE_FILTER + " " + TRACE_PATH + " > " + PRO_RAW
-    output_epilogueTrace = READ_TRACE + " -p " + EPILOGUE_FILTER + " " + TRACE_PATH + " > " + EPI_RAW
-    output_callTrace = READ_TRACE + " -p " + EPILOGUE_FILTER + " " + TRACE_PATH + " > " + CALL_RAW
-    output_jmpTrace = READ_TRACE + " -p " + EPILOGUE_FILTER + " " + TRACE_PATH + " > " + JMP_RAW
+def GenerateIntermediateFiles(read_trace, trace_path):
+    os.chdir("../data")
+    output_prologueTrace = read_trace + " -p " + PPROLOGUE_FILTER + " " + trace_path + " > " + PRO_RAW
+    output_epilogueTrace = read_trace + " -p " + EPILOGUE_FILTER + " " + trace_path + " > " + EPI_RAW
+    output_callTrace = read_trace + " -p " + EPILOGUE_FILTER + " " + trace_path + " > " + CALL_RAW
+    output_jmpTrace = read_trace + " -p " + EPILOGUE_FILTER + " " + trace_path + " > " + JMP_RAW
     print(output_prologueTrace)
     os.system(output_prologueTrace)
     CFGparseFile(PRO_RAW)
@@ -53,6 +54,7 @@ def GenerateIntermediateFiles():
     os.remove(CALL_RAW)
     os.remove(JMP_RAW)
     os.remove(JMP_FILTER)
+    os.chdir("../code")
 
 def CFGparseFile(filname):
     global cfg_DF
@@ -87,10 +89,10 @@ def CFGparseRelevantFilesAndProcess():
     cfg_DF = cfg_DF[(cfg_DF['Opcode'].str.contains('|'.join(opCodeList)))]
     cfg_DF.to_csv(CFG_FILE, sep='\t', na_rep='', header=True, index=False, encoding=None, date_format=None, doublequote=True)
     
-def main():
-    GenerateIntermediateFiles()
+def MainGenCFG(read_trace, trace_path):
+    GenerateIntermediateFiles(read_trace, trace_path)
     CFGparseRelevantFilesAndProcess()
     
 if __name__ == "__main__":
-    main()
+    MainGenCFG(READ_TRACE, TRACE_PATH)
     print("Done.")

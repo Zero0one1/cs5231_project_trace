@@ -122,7 +122,7 @@ def extract_strcpy_args(lines: list, blocks: list, call_idxs: list):
         print("These overflowed buffers are at", ", ".join(dest_buf_addr))
         return dest_size_l
 
-def main(path, path_v, instr_addr_w: str, instr_addr_r: str):
+def MainGetBufSize(path, path_v, instr_addr_w: str, instr_addr_r: str):
     ass_lines = read_trace_file(path)
     with open(path_v, "r") as f:
         ass_v_blocks = f.read().split("\n[")
@@ -171,5 +171,5 @@ if __name__ == "__main__":
     instr_addr_set_canary, instr_addr_chk_canary = "0x7f81b913f199", "0x7f81b913f1c0"
     instr_addr_set_canary, instr_addr_chk_canary = "0x7ffff3dd8161", "0x7ffff3dd8197"
     instr_addr_set_canary, instr_addr_chk_canary = "0x7ffff3dd817a", "0x7ffff3dd81ce"
-    main(trace_s_path, trace_v_path, instr_addr_set_canary, instr_addr_chk_canary)
+    MainGetBufSize(trace_s_path, trace_v_path, instr_addr_set_canary, instr_addr_chk_canary)
     # read_memfile()

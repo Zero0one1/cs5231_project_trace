@@ -136,22 +136,37 @@ def find_canary_init_inst(trace, canary_check_ln):
 # ==== Script Start =====
 #
 
+def MainGetInstrCanary(trace_s_file):
+    vuln_trace = ExecTrace(trace_s_file)
 
-# Task 2: parse and store the address range of the binary from proc_mem
-NORMAL_ADDR_RANGE = get_proc_mem_range(NORMAL_DIR + "/proc_map")
-VULN_ADDR_RANGE = get_proc_mem_range(VULN_DIR + "/proc_map")
+    # Task 3.2: find line number for instruction that checks the canary
+    canary_check_ln = find_canary_check_inst(vuln_trace)
+    print("Read the current canary before checking it at Line " + str(canary_check_ln) + ":")
+    print("  " + str(vuln_trace.get(canary_check_ln)))
 
-# Task 3.1: get the diff from two traces
-normal_trace = ExecTrace(NORMAL_TRACE_FILE)
-vuln_trace = ExecTrace(VULN_TRACE_FILE)
+    # Task 3.3: find line number for instruction that initializes the canary
+    canary_init_ln = find_canary_init_inst(vuln_trace, canary_check_ln)
+    print("Initialize the canary at Line " + str(canary_init_ln) + ":")
+    print("  " + str(vuln_trace.get(canary_init_ln)))
 
-# Task 3.2: find line number for instruction that checks the canary
-canary_check_ln = find_canary_check_inst(vuln_trace)
-print("Canary check at Line " + str(canary_check_ln) + ":")
-print("  " + str(vuln_trace.get(canary_check_ln)))
+    return (canary_check_ln, canary_init_ln)
 
-# Task 3.3: find line number for instruction that initializes the canary
-canary_init_ln = find_canary_init_inst(vuln_trace, canary_check_ln)
-print("Canary init at Line " + str(canary_init_ln) + ":")
-print("  " + str(vuln_trace.get(canary_init_ln)))
+if __name__ == "__main__":
+    # Task 2: parse and store the address range of the binary from proc_mem
+    # NORMAL_ADDR_RANGE = get_proc_mem_range(NORMAL_DIR + "/proc_map")
+    VULN_ADDR_RANGE = get_proc_mem_range(VULN_DIR + "/proc_map")
+
+    # Task 3.1: get the diff from two traces
+    # normal_trace = ExecTrace(NORMAL_TRACE_FILE)
+    vuln_trace = ExecTrace(VULN_TRACE_FILE)
+
+    # Task 3.2: find line number for instruction that checks the canary
+    canary_check_ln = find_canary_check_inst(vuln_trace)
+    print("Canary check at Line " + str(canary_check_ln) + ":")
+    print("  " + str(vuln_trace.get(canary_check_ln)))
+
+    # Task 3.3: find line number for instruction that initializes the canary
+    canary_init_ln = find_canary_init_inst(vuln_trace, canary_check_ln)
+    print("Canary init at Line " + str(canary_init_ln) + ":")
+    print("  " + str(vuln_trace.get(canary_init_ln)))
 # ==== Script End =====
