@@ -1,6 +1,5 @@
 # Trace-based Fault Localisation
- NUS CS5231 (System Security) term project for AY2022/2023 Semester 1
- Use improvements of execution traces from libpeekaboo to analyse the buffer overflow vulnerability.
+ NUS CS5231 (System Security) term project for AY2022/2023 Semester 1. Implement improvements of execution traces from libpeekaboo to analyse the buffer overflow vulnerability.
 
 ## Tasks
 
