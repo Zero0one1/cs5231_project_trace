@@ -165,7 +165,7 @@ def read_memfile():
 
 if __name__ == "__main__":
 
-    trace_idx = "16684" # 6555 16609
+    trace_idx = "16684" # 6555 16609 16684  
     trace_s_path = f"./data/{trace_idx}.all"
     trace_v_path = f"./data/{trace_idx}.allrm"
     instr_addr_set_canary, instr_addr_chk_canary = "0x7f81b913f199", "0x7f81b913f1c0"
